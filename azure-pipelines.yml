@@ -28,7 +28,11 @@ steps:
 #     path: $(Build.SourcesDirectory)
     
     
-- task: PublishPipelineArtifact@1
+# - task: PublishPipelineArtifact@1
+#   inputs:
+#     targetPath: '$(Pipeline.Workspace)' 
+#     artifactName:  'drop'
+steps:
+- task: DownloadPipelineArtifact@2
   inputs:
-    targetPath: '$(Pipeline.Workspace)' 
-    artifactName:  'drop'
+    patterns: '**/*.jar'
