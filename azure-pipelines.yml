@@ -26,13 +26,18 @@ steps:
 #   inputs:
 #     artifact: 'webapp-runner'
 #     path: $(Build.SourcesDirectory)
-    
+
+# - download: current
+#   artifact: target
+#   patterns: '**/*.jar'
+
+
     
 # - task: PublishPipelineArtifact@1
 #   inputs:
 #     targetPath: '$(Pipeline.Workspace)' 
 #     artifactName:  'drop'
-steps:
+# steps:
 - task: DownloadPipelineArtifact@2
-  inputs:
-    patterns: '**/*.jar'
+   inputs:
+     patterns: '**/*.jar'
