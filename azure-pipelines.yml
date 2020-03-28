@@ -20,6 +20,14 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+ 
+# Download an artifact named 'WebApp' to 'bin' in $(Build.SourcesDirectory)
+- task: DownloadPipelineArtifact@2
+  inputs:
+    artifact: 'WebApp'
+    path: $(Build.SourcesDirectory)/target/dependency
+    
+    
 
 # - task: PublishBuildArtifacts@1    
 #   displayName: 'Publish Artifact: drop'
