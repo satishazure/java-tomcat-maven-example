@@ -22,15 +22,13 @@ steps:
     goals: 'package'
  
 # Download an artifact named 'WebApp' to 'bin' in $(Build.SourcesDirectory)
-- task: DownloadPipelineArtifact@2
-  inputs:
-    artifact: 'webapp-runner'
-    path: $(Build.SourcesDirectory)/target/dependency
-    
-    
-
-# - task: PublishBuildArtifacts@1    
-#   displayName: 'Publish Artifact: drop'
+# - task: DownloadPipelineArtifact@2
 #   inputs:
-#     PathtoPublish: '$(build.artifactstagingdirectory)'
-
+#     artifact: 'webapp-runner'
+#     path: $(Build.SourcesDirectory)
+    
+    
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)' 
+    artifactName:  'drop'
