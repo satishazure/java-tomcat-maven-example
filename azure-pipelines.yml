@@ -33,11 +33,11 @@ steps:
 
 
     
-# - task: PublishPipelineArtifact@1
-#   inputs:
-#     targetPath: '$(Pipeline.Workspace)' 
-#     artifactName:  'drop'
-# steps:
-- task: DownloadPipelineArtifact@2
+ - task: PublishPipelineArtifact@1
    inputs:
-     patterns: '**/*.jar'
+     targetPath: '$(Pipeline.Workspace)/target/dependency' 
+     artifactName:  'drop'
+# # steps:
+# - task: DownloadPipelineArtifact@2
+#    inputs:
+#      patterns: '**/*.jar'
